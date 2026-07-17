@@ -48,40 +48,34 @@ panel will fail until you complete the Supabase setup below.
    then from the repo root:
    ```bash
    supabase login
-   supabase link --project-ref <your-project-ref>
+   supabase link --project-ref cbndmczocihyqhhxjbvp
    supabase secrets set \
      RESEND_API_KEY=re_... \
-     EMAIL_FROM="4740 Barbershop <bookings@yourdomain.pt>" \
-     DB_WEBHOOK_SECRET=$(openssl rand -hex 16) \
+     EMAIL_FROM="4740 Barbershop <onboarding@resend.dev>" \
+     DB_WEBHOOK_SECRET=f16e20cc83e15d6e9cf022e2d4a93025 \
      ADMIN_PASSWORD=choose-a-strong-shared-password
    supabase functions deploy send-confirmation
    supabase functions deploy send-reminders
    supabase functions deploy admin-appointments --no-verify-jwt
    ```
    (`SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` are injected automatically
-   — you don't set those yourself.)
-5. **Confirmation email:** Dashboard → Database → Webhooks → Create a new
-   webhook: table `appointments`, event `Insert`, type `HTTP Request`,
-   URL = the deployed `send-confirmation` function URL, header
-   `x-webhook-secret: <the DB_WEBHOOK_SECRET you set above>`.
-6. **Reminder cron:** Dashboard → Edge Functions → `send-reminders` → enable
-   a Cron schedule of `*/10 * * * *` (every 10 minutes). If your project's
-   CLI/dashboard version doesn't offer Edge Function cron yet, enable the
-   `pg_cron` and `pg_net` extensions instead and schedule:
-   ```sql
-   select cron.schedule(
-     'send-reminders',
-     '*/10 * * * *',
-     $$ select net.http_post(
-          url := 'https://<project-ref>.functions.supabase.co/send-reminders',
-          headers := '{"Authorization": "Bearer <anon-or-service-key>"}'::jsonb
-        ) $$
-   );
-   ```
-7. **Resend:** create a free account at [resend.com](https://resend.com),
-   verify a sending domain (or use their `onboarding@resend.dev` test
-   address while developing), and use that API key as `RESEND_API_KEY`
-   above.
+   — you don't set those yourself. `DB_WEBHOOK_SECRET` must match the value
+   baked into `0002_reminders_and_webhook.sql` below — change both together
+   if you regenerate it.)
+5. **Confirmation email + reminder cron:** once the three functions above are
+   deployed, open the SQL editor and run
+   [`supabase/migrations/0002_reminders_and_webhook.sql`](supabase/migrations/0002_reminders_and_webhook.sql).
+   This creates a `pg_net`-based trigger that calls `send-confirmation` on
+   every new appointment (the SQL equivalent of the Dashboard's Database
+   Webhooks feature, but checked into git), and a `pg_cron` schedule that
+   calls `send-reminders` every 10 minutes. Run it *after* the functions are
+   deployed, since it references their live URLs.
+6. **Resend:** create a free account at [resend.com](https://resend.com). The
+   migration above and the `secrets set` command default to Resend's shared
+   `onboarding@resend.dev` test address, which works immediately with no DNS
+   setup. To send from your own domain later, verify it in the Resend
+   dashboard, then update `EMAIL_FROM` (`supabase secrets set EMAIL_FROM=...`)
+   — no code changes needed.
 
 ## Admin panel
 
