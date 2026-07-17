@@ -60,7 +60,7 @@ export default function AdminPage() {
   if (!password) {
     return (
       <main className="grid min-h-screen place-items-center bg-ink px-5">
-        <form onSubmit={handleLogin} className="w-full max-w-sm rounded-3xl border border-white/10 bg-charcoal p-8">
+        <form onSubmit={handleLogin} className="w-full max-w-sm rounded-3xl border border-gold/20 bg-charcoal p-8">
           <div className="flex items-center gap-2.5">
             <StampMark className="h-9 w-9" />
             <span className="text-lg font-black text-white">{tr('admin_title')}</span>
@@ -136,7 +136,7 @@ export default function AdminPage() {
           ))}
         </div>
 
-        <div className="mt-6 overflow-x-auto rounded-3xl border border-white/10">
+        <div className="mt-6 overflow-x-auto rounded-3xl border border-gold/15">
           {loading && <p className="p-6 text-sm text-white/60 normal-case">{tr('admin_loading')}</p>}
           {!loading && appointments && appointments.length === 0 && (
             <p className="p-6 text-sm text-white/60 normal-case">{tr('admin_no_appointments')}</p>

@@ -31,7 +31,7 @@ export function ContactStep({
   }
 
   const inputClass = `w-full rounded-xl border px-4 py-3 text-sm outline-none transition-colors focus:border-gold ${
-    light ? 'border-stone/20 bg-white text-stone placeholder:text-stone/40' : 'border-white/15 bg-charcoal text-white placeholder:text-white/30'
+    light ? 'border-stone/20 bg-white text-stone placeholder:text-stone/40' : 'border-gold/20 bg-charcoal text-white placeholder:text-white/30'
   }`
   const labelClass = `mb-1.5 block text-xs font-bold uppercase tracking-wide ${light ? 'text-stone/70' : 'text-white/60'}`
 

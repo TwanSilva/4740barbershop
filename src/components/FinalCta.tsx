@@ -10,17 +10,17 @@ export function FinalCta() {
   const ref = useReveal<HTMLDivElement>()
 
   return (
-    <section className="px-5 py-24 sm:px-8 sm:py-32">
+    <section className="bg-mist px-5 py-24 sm:px-8 sm:py-32">
       <div
         ref={ref}
         data-reveal
-        className="relative mx-auto max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-charcoal px-8 py-16 text-center sm:px-16"
+        className="relative mx-auto max-w-5xl overflow-hidden rounded-3xl border border-gold/30 bg-ink px-8 py-16 text-center shadow-xl sm:px-16"
       >
         <StampWatermark className="-top-20 -left-20 h-72 w-72 -rotate-12" />
         <StampWatermark className="-right-20 -bottom-20 h-72 w-72 rotate-12" />
 
         <div className="relative">
-          <h2 className="text-4xl font-black text-white sm:text-5xl">{tr('final_cta_title')}</h2>
+          <h2 className="text-gold-metallic text-4xl font-black sm:text-5xl">{tr('final_cta_title')}</h2>
           <p className="mx-auto mt-4 max-w-lg text-base text-white/70 normal-case">{tr('final_cta_subtitle')}</p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link

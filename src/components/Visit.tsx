@@ -22,7 +22,7 @@ function Hours() {
   const currentDayKey = useCurrentDayKey()
 
   return (
-    <div className="rounded-3xl border border-white/10 bg-ink p-7">
+    <div className="rounded-3xl border border-gold/15 bg-ink p-7">
       <div className="flex items-center justify-between">
         <h3 className="flex items-center gap-2 text-lg font-bold text-white normal-case">
           <IconClock className="h-5 w-5 text-gold" />
@@ -79,7 +79,7 @@ export function Visit() {
           <div data-reveal className="flex flex-col gap-6">
             <Hours />
 
-            <div className="rounded-3xl border border-white/10 bg-ink p-7">
+            <div className="rounded-3xl border border-gold/15 bg-ink p-7">
               <p className="text-xs font-bold tracking-wide text-gold uppercase">{tr('address_label')}</p>
               <p className="mt-2 text-base font-semibold text-white normal-case">{ADDRESS_LINE}</p>
 
@@ -100,7 +100,7 @@ export function Visit() {
             </div>
           </div>
 
-          <div data-reveal className="min-h-[360px] overflow-hidden rounded-3xl border border-white/10">
+          <div data-reveal className="min-h-[360px] overflow-hidden rounded-3xl border border-gold/15">
             <iframe
               title={`${BUSINESS_FULL_NAME} — Google Maps`}
               src={MAPS_EMBED_URL}

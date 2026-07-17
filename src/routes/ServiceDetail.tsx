@@ -83,7 +83,7 @@ export default function ServiceDetailPage() {
             <Link
               to="/#services"
               className={`mt-6 inline-flex items-center rounded-full border px-6 py-3 text-sm font-bold normal-case ${
-                light ? 'border-stone/20 text-stone hover:border-gold/50' : 'border-white/15 text-white hover:border-gold/40'
+                light ? 'border-stone/20 text-stone hover:border-gold/50' : 'border-gold/20 text-white hover:border-gold/40'
               }`}
             >
               {tr('service_back')}

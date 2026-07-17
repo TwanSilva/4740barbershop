@@ -39,8 +39,8 @@ export function Services() {
                 data-reveal
                 className={`group flex flex-col overflow-hidden rounded-3xl border p-7 transition-all hover:-translate-y-1 ${
                   light
-                    ? 'border-mist-2 bg-mist hover:border-gold/50'
-                    : 'border-white/10 bg-ink hover:border-gold/40'
+                    ? 'border-gold/20 bg-mist hover:border-gold'
+                    : 'border-gold/15 bg-ink hover:border-gold/60'
                 }`}
               >
                 <div

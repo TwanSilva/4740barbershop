@@ -34,7 +34,7 @@ export function Confirmation({
         {tr('booking_confirmed_body')}
       </p>
 
-      <div className={`mx-auto mt-8 max-w-sm rounded-3xl border p-6 text-left ${light ? 'border-stone/15 bg-white' : 'border-white/10 bg-charcoal'}`}>
+      <div className={`mx-auto mt-8 max-w-sm rounded-3xl border p-6 text-left ${light ? 'border-stone/15 bg-white' : 'border-gold/15 bg-charcoal'}`}>
         <dl className="flex flex-col gap-3 text-sm">
           <div className="flex justify-between gap-4">
             <dt className={light ? 'text-stone/60' : 'text-white/50'}>{tr('booking_summary_service')}</dt>

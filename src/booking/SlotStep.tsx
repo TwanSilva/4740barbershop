@@ -62,7 +62,7 @@ export function SlotStep({
                   ? 'border-gold bg-gold text-ink'
                   : light
                     ? 'border-stone/15 text-stone hover:border-gold/50'
-                    : 'border-white/10 text-white hover:border-gold/40'
+                    : 'border-gold/15 text-white hover:border-gold/40'
               }`}
             >
               <span className="text-[10px] font-bold uppercase">
@@ -94,7 +94,7 @@ export function SlotStep({
                   slot.available
                     ? light
                       ? 'border-stone/15 text-stone hover:border-gold hover:bg-gold/10'
-                      : 'border-white/10 text-white hover:border-gold hover:bg-gold/10'
+                      : 'border-gold/15 text-white hover:border-gold hover:bg-gold/10'
                     : 'cursor-not-allowed border-transparent bg-white/5 text-white/25 line-through'
                 }`}
               >

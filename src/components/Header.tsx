@@ -56,7 +56,7 @@ export function Header() {
   return (
     <header
       className={`sticky top-0 z-50 transition-colors duration-300 ${
-        scrolled ? 'bg-ink/80 backdrop-blur-lg border-b border-white/10' : 'bg-transparent'
+        scrolled ? 'bg-ink/80 backdrop-blur-lg border-b border-gold/20' : 'bg-transparent'
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-8">
@@ -101,7 +101,7 @@ export function Header() {
       </div>
 
       {menuOpen && (
-        <nav className="border-t border-white/10 bg-ink px-5 py-4 lg:hidden">
+        <nav className="border-t border-gold/15 bg-ink px-5 py-4 lg:hidden">
           <div className="flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
               <Link

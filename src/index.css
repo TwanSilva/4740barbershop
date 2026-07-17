@@ -4,17 +4,24 @@
   --font-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
   --font-sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
 
-  --color-ink: #0a0a0a;
-  --color-charcoal: #16161a;
-  --color-charcoal-2: #1f1f24;
-  --color-line: #2c2c32;
-  --color-gold: #c9a24b;
-  --color-gold-dim: #a8843a;
+  /* Charcoal black — lightened off pure black so dark sections read as a
+     rich charcoal, not a void. */
+  --color-ink: #17171a;
+  --color-charcoal: #202024;
+  --color-charcoal-2: #2b2b30;
+  --color-line: #3a3a41;
 
-  /* Lighter palette used on Sónia's aesthetics pages/sections */
-  --color-mist: #f4f3f1;
-  --color-mist-2: #e8e6e2;
-  --color-stone: #3a3a40;
+  /* Metallic gold — warmer/brighter than a muted brass, plus a highlight
+     tone for gradient "shine" effects on headings/dividers. */
+  --color-gold: #cfa966;
+  --color-gold-light: #ecd6a6;
+  --color-gold-dim: #a3803f;
+
+  /* Soft white — used on alternating sections site-wide (not just Sónia's
+     aesthetics pages) so the site isn't wall-to-wall dark. */
+  --color-mist: #f7f5f0;
+  --color-mist-2: #ece7dd;
+  --color-stone: #2c2b29;
 }
 
 @layer base {
@@ -65,6 +72,22 @@
       transparent 61%
     );
     opacity: 0.06;
+  }
+
+  /* Brushed-metal gold text, for headings that want extra shine */
+  .text-gold-metallic {
+    background: linear-gradient(115deg, var(--color-gold-dim) 10%, var(--color-gold-light) 45%, var(--color-gold) 75%, var(--color-gold-dim) 95%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  /* Thin gold divider dropped between sections to keep gold present
+     throughout the page, not just on buttons. */
+  .gold-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-gold) 50%, transparent);
+    opacity: 0.5;
   }
 }
 

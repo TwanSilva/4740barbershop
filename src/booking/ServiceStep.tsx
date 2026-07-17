@@ -23,7 +23,7 @@ export function ServiceStep({
             type="button"
             onClick={() => onSelect(service.slug)}
             className={`flex flex-col items-start rounded-3xl border p-6 text-left transition-all hover:-translate-y-1 ${
-              selected === service.slug ? 'border-gold bg-gold/10' : 'border-white/10 bg-charcoal hover:border-gold/40'
+              selected === service.slug ? 'border-gold bg-gold/10' : 'border-gold/15 bg-charcoal hover:border-gold/40'
             }`}
           >
             <p className="text-lg font-bold text-white normal-case">{service.name[lang]}</p>
