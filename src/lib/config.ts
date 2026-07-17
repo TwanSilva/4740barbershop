@@ -11,10 +11,7 @@ export const PHONE_TEL = '+351253037642'
 
 export const ADDRESS_LINE = 'R. Eng. Custódio José Vilas Boas n.º 40 Lj F, 4740-231 Esposende, Portugal'
 
-// TODO: the post URL below was the only Instagram link provided. Replace with
-// the actual profile root URL (e.g. https://www.instagram.com/<handle>/) once
-// confirmed — the header/footer icon should link to the profile, not a post.
-export const INSTAGRAM_URL = 'https://www.instagram.com/p/DM-4Hvaqs8r/'
+export const INSTAGRAM_URL = 'https://www.instagram.com/4740barbershop/'
 export const FACEBOOK_URL = 'https://www.facebook.com/BarbeariaBarbaNegraEsposende/'
 
 export const GOOGLE_RATING = 4.9

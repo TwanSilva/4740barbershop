@@ -120,11 +120,6 @@ currently fall back to a placeholder circular mark (`StampMark` in
 `public/logo.png` (and ideally `public/og-image.jpg` for social previews),
 then set `LOGO_SRC = '/logo.png'` in `src/lib/config.ts`.
 
-**Instagram link:** `INSTAGRAM_URL` in `src/lib/config.ts` currently points
-at the single post URL you provided, since the profile handle couldn't be
-resolved automatically. Replace it with the profile root URL
-(`https://www.instagram.com/<handle>/`).
-
 **Hero video:** drop the files under `src/assets/hero/` and set
 `HERO_VIDEO_SRC` in `src/lib/config.ts` — until then the hero falls back to
 a dark gradient background.
