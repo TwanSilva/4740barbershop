@@ -1,0 +1,10 @@
+project_id = "4740-barbershop"
+
+[functions.send-confirmation]
+verify_jwt = false
+
+[functions.send-reminders]
+verify_jwt = false
+
+[functions.admin-appointments]
+verify_jwt = false
