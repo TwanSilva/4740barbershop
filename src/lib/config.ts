@@ -20,7 +20,8 @@ export const GOOGLE_REVIEWS_COUNT = 154
 export const MAPS_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(ADDRESS_LINE)}`
 export const MAPS_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(ADDRESS_LINE)}&output=embed`
 export const GOOGLE_SEARCH_URL = `https://www.google.com/search?q=${encodeURIComponent(`${BUSINESS_FULL_NAME} Esposende`)}`
-export const GOOGLE_REVIEW_URL = `https://search.google.com/local/writereview?q=${encodeURIComponent(`${BUSINESS_FULL_NAME} Esposende`)}`
+export const GOOGLE_REVIEW_URL =
+  'https://www.google.com/search?sca_esv=bcbe1a3c17fe5261&cs=0&sxsrf=APpeQnu9qj0-UBKa1nV_TzWurvgFn_E2lg:1784328333449&q=Barbershop+Cr%C3%ADticas&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNLQwNbU0MDU2NLA0NjI2ADItNjAyvmIUcUosSkotKs7IL1BwLjq8tiQzObF4EStWYQCNaayZSQAAAA&rldimm=11855905310932309058&tbm=lcl&hl=pt-PT&sa=X&ved=2ahUKEwjYg-eD5dqVAxWTKvsDHTu8EpoQ9fQKegQIEhAG&biw=1920&bih=953&dpr=1#lkt=LocalPoiReviews'
 
 // Easy-swap slot for the hero background video — drop the real files in
 // /src/assets/hero and update these three imports/paths. Until then the hero
