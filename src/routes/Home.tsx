@@ -5,6 +5,7 @@ import { Hero } from '../components/Hero'
 import { Team } from '../components/Team'
 import { Services } from '../components/Services'
 import { Reviews } from '../components/Reviews'
+import { LocationBackdrop } from '../components/LocationBackdrop'
 import { Visit } from '../components/Visit'
 import { FinalCta } from '../components/FinalCta'
 import { Footer } from '../components/Footer'
@@ -25,8 +26,10 @@ export default function HomePage() {
       <main>
         <Hero />
         <Team />
-        <Services />
-        <Reviews />
+        <LocationBackdrop>
+          <Services />
+          <Reviews />
+        </LocationBackdrop>
         <Visit />
         <FinalCta />
       </main>

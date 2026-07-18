@@ -3,17 +3,13 @@ import { useReveal } from '../hooks/useReveal'
 import { GOOGLE_RATING, GOOGLE_REVIEWS_COUNT, GOOGLE_REVIEW_URL, GOOGLE_SEARCH_URL, TESTIMONIALS } from '../lib/config'
 import { SectionHeading } from './SectionHeading'
 import { IconStar } from './icons'
-import locationImg from '../assets/visit/location.jpg'
 
 export function Reviews() {
   const { tr, lang } = useLang()
   const ref = useReveal<HTMLDivElement>()
 
   return (
-    <section id="reviews" className="relative overflow-hidden py-24 sm:py-32">
-      <img src={locationImg} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />
-      <div className="absolute inset-0 bg-ink/90" />
-
+    <section id="reviews" className="relative py-24 sm:py-32">
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading eyebrow={tr('reviews_eyebrow')} title={tr('reviews_title')} />
 
