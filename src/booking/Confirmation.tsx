@@ -27,26 +27,26 @@ export function Confirmation({
       <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-gold text-ink">
         <IconCheck className="h-8 w-8" />
       </div>
-      <h2 className={`mt-6 text-3xl font-black sm:text-4xl ${light ? 'text-stone' : 'text-white'}`}>
+      <h2 className={`mt-6 text-3xl font-bold sm:text-4xl ${light ? 'text-stone' : 'text-cream'}`}>
         {tr('booking_confirmed_title')}
       </h2>
-      <p className={`mx-auto mt-4 max-w-md text-base normal-case ${light ? 'text-stone/70' : 'text-white/70'}`}>
+      <p className={`mx-auto mt-4 max-w-md text-base normal-case ${light ? 'text-stone-dim' : 'text-cream-dim'}`}>
         {tr('booking_confirmed_body')}
       </p>
 
-      <div className={`mx-auto mt-8 max-w-sm rounded-3xl border p-6 text-left ${light ? 'border-stone/15 bg-white' : 'border-gold/15 bg-charcoal'}`}>
+      <div className={`mx-auto mt-8 max-w-sm border-t ${light ? 'border-mist-2' : 'border-line'} pt-6 text-left`}>
         <dl className="flex flex-col gap-3 text-sm">
           <div className="flex justify-between gap-4">
-            <dt className={light ? 'text-stone/60' : 'text-white/50'}>{tr('booking_summary_service')}</dt>
-            <dd className={`font-semibold normal-case ${light ? 'text-stone' : 'text-white'}`}>{serviceName}</dd>
+            <dt className={light ? 'text-stone-dim' : 'text-cream-dim'}>{tr('booking_summary_service')}</dt>
+            <dd className={`font-semibold normal-case ${light ? 'text-stone' : 'text-cream'}`}>{serviceName}</dd>
           </div>
           <div className="flex justify-between gap-4">
-            <dt className={light ? 'text-stone/60' : 'text-white/50'}>{tr('booking_summary_provider')}</dt>
-            <dd className={`font-semibold normal-case ${light ? 'text-stone' : 'text-white'}`}>{providerName}</dd>
+            <dt className={light ? 'text-stone-dim' : 'text-cream-dim'}>{tr('booking_summary_provider')}</dt>
+            <dd className={`font-semibold normal-case ${light ? 'text-stone' : 'text-cream'}`}>{providerName}</dd>
           </div>
           <div className="flex justify-between gap-4">
-            <dt className={light ? 'text-stone/60' : 'text-white/50'}>{tr('booking_summary_when')}</dt>
-            <dd className={`text-right font-semibold normal-case ${light ? 'text-stone' : 'text-white'}`}>
+            <dt className={light ? 'text-stone-dim' : 'text-cream-dim'}>{tr('booking_summary_when')}</dt>
+            <dd className={`text-right font-semibold normal-case ${light ? 'text-stone' : 'text-cream'}`}>
               {formattedDate}, {time}
             </dd>
           </div>
@@ -55,7 +55,7 @@ export function Confirmation({
 
       <Link
         to="/"
-        className="mt-8 inline-flex items-center rounded-full bg-gold px-8 py-4 text-sm font-bold text-ink transition-transform hover:scale-105"
+        className="mt-8 inline-flex items-center rounded-full bg-gold px-8 py-4 text-sm font-bold text-ink transition-all duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2 active:scale-95"
       >
         {tr('booking_confirmed_back_home')}
       </Link>

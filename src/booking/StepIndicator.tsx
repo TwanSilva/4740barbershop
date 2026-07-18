@@ -13,7 +13,7 @@ export function StepIndicator({ step, total, light }: { step: number; total: num
           <div
             key={i}
             className={`h-1.5 flex-1 rounded-full ${
-              i < step ? 'bg-gold' : light ? 'bg-stone/15' : 'bg-white/10'
+              i < step ? 'bg-gold' : light ? 'bg-mist-2' : 'bg-line'
             }`}
           />
         ))}

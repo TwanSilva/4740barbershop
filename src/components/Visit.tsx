@@ -22,30 +22,30 @@ function Hours() {
   const currentDayKey = useCurrentDayKey()
 
   return (
-    <div className="rounded-3xl border border-gold/15 bg-ink p-7">
+    <div className="rounded-3xl border border-line bg-charcoal-2 p-7">
       <div className="flex items-center justify-between">
-        <h3 className="flex items-center gap-2 text-lg font-bold text-white normal-case">
+        <h3 className="flex items-center gap-2 text-lg font-bold text-cream normal-case">
           <IconClock className="h-5 w-5 text-gold" />
           {tr('hours_title')}
         </h3>
         {isOpen !== null && (
           <span
             className={`flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold normal-case ${
-              isOpen ? 'bg-gold/15 text-gold' : 'bg-white/10 text-white/60'
+              isOpen ? 'bg-gold/15 text-gold' : 'bg-charcoal text-cream-dim'
             }`}
           >
-            <span className={`h-1.5 w-1.5 rounded-full ${isOpen ? 'bg-gold' : 'bg-white/40'}`} />
+            <span className={`h-1.5 w-1.5 rounded-full ${isOpen ? 'bg-gold' : 'bg-cream-dim-2'}`} />
             {isOpen ? tr('hours_open_now') : tr('hours_closed_now')}
           </span>
         )}
       </div>
 
-      <ul className="mt-5 divide-y divide-white/10">
+      <ul className="mt-5 divide-y divide-line">
         {HOURS.map((row) => (
           <li
             key={row.dayKey}
             className={`flex items-center justify-between py-3 text-sm normal-case ${
-              currentDayKey === row.dayKey ? 'text-gold' : 'text-white/70'
+              currentDayKey === row.dayKey ? 'text-gold' : 'text-cream-dim'
             }`}
           >
             <span className="font-semibold">{tr(row.dayKey)}</span>
@@ -71,7 +71,7 @@ export function Visit() {
   ] as const
 
   return (
-    <section id="visit" className="relative bg-charcoal py-24 sm:py-32">
+    <section id="visit" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading eyebrow={tr('visit_eyebrow')} title={tr('visit_title')} />
 
@@ -79,9 +79,9 @@ export function Visit() {
           <div data-reveal className="flex flex-col gap-6">
             <Hours />
 
-            <div className="rounded-3xl border border-gold/15 bg-ink p-7">
+            <div className="rounded-3xl border border-line bg-charcoal-2 p-7">
               <p className="text-xs font-bold tracking-wide text-gold uppercase">{tr('address_label')}</p>
-              <p className="mt-2 text-base font-semibold text-white normal-case">{ADDRESS_LINE}</p>
+              <p className="mt-2 text-base font-semibold text-cream normal-case">{ADDRESS_LINE}</p>
 
               <div className="mt-6 flex flex-wrap gap-3">
                 {actions.map((action) => (
@@ -90,7 +90,7 @@ export function Visit() {
                     href={action.href}
                     target={action.href.startsWith('tel:') ? undefined : '_blank'}
                     rel={action.href.startsWith('tel:') ? undefined : 'noreferrer'}
-                    className="flex items-center gap-2 rounded-full border border-white/15 px-4 py-2.5 text-xs font-bold text-white transition-colors hover:border-gold/50 hover:text-gold"
+                    className="flex items-center gap-2 rounded-full border border-line px-4 py-2.5 text-xs font-bold text-cream transition-colors duration-200 hover:border-gold hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 active:scale-95"
                   >
                     {action.icon}
                     {tr(action.key)}
@@ -100,7 +100,7 @@ export function Visit() {
             </div>
           </div>
 
-          <div data-reveal className="min-h-[360px] overflow-hidden rounded-3xl border border-gold/15">
+          <div data-reveal className="min-h-[360px] overflow-hidden rounded-3xl border border-line">
             <iframe
               title={`${BUSINESS_FULL_NAME} — Google Maps`}
               src={MAPS_EMBED_URL}

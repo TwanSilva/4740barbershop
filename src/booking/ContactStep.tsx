@@ -30,14 +30,16 @@ export function ContactStep({
     onSubmit({ name, email, phone, notes })
   }
 
-  const inputClass = `w-full rounded-xl border px-4 py-3 text-sm outline-none transition-colors focus:border-gold ${
-    light ? 'border-stone/20 bg-white text-stone placeholder:text-stone/40' : 'border-gold/20 bg-charcoal text-white placeholder:text-white/30'
+  const inputClass = `w-full rounded-xl border px-4 py-3 text-sm outline-none transition-colors duration-200 focus:border-gold focus-visible:ring-2 focus-visible:ring-gold/40 ${
+    light
+      ? 'border-mist-2 bg-white text-stone placeholder:text-stone-dim-2'
+      : 'border-line bg-charcoal-2 text-cream placeholder:text-cream-dim-2'
   }`
-  const labelClass = `mb-1.5 block text-xs font-bold uppercase tracking-wide ${light ? 'text-stone/70' : 'text-white/60'}`
+  const labelClass = `mb-1.5 block text-xs font-bold uppercase tracking-wide ${light ? 'text-stone-dim' : 'text-cream-dim'}`
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2 className={`text-2xl font-black sm:text-3xl ${light ? 'text-stone' : 'text-white'}`}>
+      <h2 className={`text-2xl font-bold sm:text-3xl ${light ? 'text-stone' : 'text-cream'}`}>
         {tr('booking_step_contact_title')}
       </h2>
 
@@ -94,7 +96,7 @@ export function ContactStep({
       <button
         type="submit"
         disabled={submitting}
-        className="mt-8 w-full rounded-full bg-gold px-8 py-4 text-sm font-bold text-ink transition-transform hover:scale-[1.02] disabled:opacity-60 sm:w-auto"
+        className="mt-8 w-full rounded-full bg-gold px-8 py-4 text-sm font-bold text-ink transition-all duration-200 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2 active:scale-95 disabled:pointer-events-none disabled:opacity-60 sm:w-auto"
       >
         {submitting ? tr('booking_submitting') : tr('booking_submit')}
       </button>

@@ -32,33 +32,33 @@ export function Hero() {
 
       <div className="relative mx-auto flex min-h-[92svh] max-w-6xl flex-col justify-center px-5 py-24 sm:px-8">
         <p className="mb-5 text-sm font-bold tracking-[0.25em] text-gold uppercase">{tr('hero_eyebrow')}</p>
-        <h1 className="max-w-3xl text-5xl leading-[0.95] font-black text-white sm:text-7xl">
+        <h1 className="max-w-3xl text-5xl leading-[0.95] font-bold text-cream sm:text-7xl">
           {tr('hero_headline')}
         </h1>
-        <p className="mt-6 max-w-xl text-lg text-white/70 normal-case">{tr('hero_subheadline')}</p>
+        <p className="mt-6 max-w-xl text-lg text-cream-dim normal-case">{tr('hero_subheadline')}</p>
 
         <div className="mt-9 flex flex-wrap items-center gap-4">
           <Link
             to="/book/barber"
-            className="rounded-full bg-gold px-7 py-4 text-sm font-bold text-ink transition-transform hover:scale-105"
+            className="rounded-full bg-gold px-7 py-4 text-sm font-bold text-ink transition-all duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-95"
           >
             {tr('hero_cta_primary')}
           </Link>
           <Link
             to="/#services"
-            className="rounded-full border border-white/25 px-7 py-4 text-sm font-bold text-white transition-colors hover:border-white/60"
+            className="rounded-full border border-line px-7 py-4 text-sm font-bold text-cream transition-colors duration-200 hover:border-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 active:scale-95"
           >
             {tr('hero_cta_secondary')}
           </Link>
         </div>
 
-        <div className="mt-12 flex items-center gap-3 text-white">
+        <div className="mt-12 flex items-center gap-3">
           <div className="flex text-gold">
             {Array.from({ length: 5 }).map((_, i) => (
               <IconStar key={i} className="h-4 w-4" />
             ))}
           </div>
-          <p className="text-sm font-semibold text-white/70">
+          <p className="text-sm font-semibold text-cream-dim">
             {GOOGLE_RATING.toFixed(1)} {tr('hero_stat_rating')} · {GOOGLE_REVIEWS_COUNT} {tr('hero_stat_reviews')}
           </p>
         </div>

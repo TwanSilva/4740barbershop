@@ -48,8 +48,8 @@ function Shell({
             <button
               type="button"
               onClick={onBack}
-              className={`mb-6 inline-flex items-center gap-1.5 text-sm font-semibold normal-case ${
-                light ? 'text-stone/70 hover:text-stone' : 'text-white/60 hover:text-white'
+              className={`mb-6 inline-flex items-center gap-1.5 text-sm font-semibold normal-case transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 active:scale-95 ${
+                light ? 'text-stone-dim hover:text-stone' : 'text-cream-dim hover:text-cream'
               }`}
             >
               <IconChevronLeft className="h-4 w-4" />

@@ -21,15 +21,15 @@ function LangToggle() {
   ]
 
   return (
-    <div className="flex items-center gap-1 rounded-full border border-white/15 bg-white/5 p-1">
+    <div className="flex items-center gap-1 rounded-full border border-line p-1">
       {options.map((opt) => (
         <button
           key={opt.value}
           type="button"
           aria-pressed={lang === opt.value}
           onClick={() => setLang(opt.value)}
-          className={`rounded-full px-2.5 py-1 text-xs font-bold tracking-wide transition-colors ${
-            lang === opt.value ? 'bg-gold text-ink' : 'text-white/60 hover:text-white'
+          className={`rounded-full px-2.5 py-1 text-xs font-bold tracking-wide transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 ${
+            lang === opt.value ? 'bg-gold text-ink' : 'text-cream-dim hover:text-cream'
           }`}
         >
           {opt.label}
@@ -56,11 +56,11 @@ export function Header() {
   return (
     <header
       className={`sticky top-0 z-50 transition-colors duration-300 ${
-        scrolled ? 'bg-ink/80 backdrop-blur-lg border-b border-gold/20' : 'bg-transparent'
+        scrolled ? 'bg-ink/90 backdrop-blur-lg border-b border-gold/20' : 'bg-transparent'
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-8">
-        <Link to="/#top" className="flex items-center gap-2.5 text-xl font-black tracking-tight text-white normal-case">
+        <Link to="/#top" className="flex items-center gap-2.5 text-xl font-bold tracking-tight text-cream normal-case">
           <StampMark className="h-9 w-9" />
           {BUSINESS_NAME}
         </Link>
@@ -70,7 +70,7 @@ export function Header() {
             <Link
               key={link.key}
               to={`/${link.hash}`}
-              className="text-sm font-semibold text-white/70 transition-colors hover:text-white"
+              className="text-sm font-semibold text-cream-dim transition-colors duration-200 hover:text-cream"
             >
               {tr(link.key)}
             </Link>
@@ -81,7 +81,7 @@ export function Header() {
           <LangToggle />
           <Link
             to="/book/barber"
-            className="rounded-full bg-gold px-5 py-2.5 text-sm font-bold text-ink transition-transform hover:scale-105"
+            className="rounded-full bg-gold px-5 py-2.5 text-sm font-bold text-ink transition-all duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-95"
           >
             {tr('nav_cta')}
           </Link>
@@ -93,7 +93,7 @@ export function Header() {
             type="button"
             aria-label="Menu"
             onClick={() => setMenuOpen((v) => !v)}
-            className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white"
+            className="grid h-10 w-10 place-items-center rounded-full border border-line text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 active:scale-95"
           >
             {menuOpen ? <IconX className="h-5 w-5" /> : <IconMenu className="h-5 w-5" />}
           </button>
@@ -108,7 +108,7 @@ export function Header() {
                 key={link.key}
                 to={`/${link.hash}`}
                 onClick={() => setMenuOpen(false)}
-                className="text-base font-semibold text-white/80"
+                className="text-base font-semibold text-cream"
               >
                 {tr(link.key)}
               </Link>
@@ -116,11 +116,11 @@ export function Header() {
             <Link
               to="/book/barber"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 rounded-full bg-gold px-5 py-3 text-center text-sm font-bold text-ink"
+              className="mt-2 rounded-full bg-gold px-5 py-3 text-center text-sm font-bold text-ink active:scale-95"
             >
               {tr('nav_cta')}
             </Link>
-            <a href={`tel:${PHONE_TEL}`} className="text-center text-sm font-semibold text-white/60">
+            <a href={`tel:${PHONE_TEL}`} className="text-center text-sm font-semibold text-cream-dim">
               {PHONE_TEL}
             </a>
           </div>

@@ -1,27 +1,39 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  /* Bold slab serif for headings — echoes the stamp logo's lettering
+     directly, rather than the condensed-sans look every other barbershop
+     template reaches for. */
+  --font-display: 'Zilla Slab', 'Georgia', serif;
   --font-sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
 
-  /* Charcoal black — lightened off pure black so dark sections read as a
-     rich charcoal, not a void. */
+  /* Charcoal black is the site's dominant tone — used deliberately, not
+     alternated evenly with light sections. */
   --color-ink: #17171a;
-  --color-charcoal: #202024;
-  --color-charcoal-2: #2b2b30;
+  --color-charcoal: #1e1e22;
+  --color-charcoal-2: #28282d;
   --color-line: #3a3a41;
 
-  /* Metallic gold — warmer/brighter than a muted brass, plus a highlight
-     tone for gradient "shine" effects on headings/dividers. */
+  /* Soft white primary/secondary text on dark — solid tones, not
+     white-at-N%-opacity, so hierarchy comes from color+weight, not fade. */
+  --color-cream: #f2efe7;
+  --color-cream-dim: #a29c8f;
+  --color-cream-dim-2: #6b6659;
+
+  /* Metallic gold — the site's one confident accent. Reserved for CTAs,
+     hover/active states and a handful of highlight moments, not spread
+     evenly across every border. */
   --color-gold: #cfa966;
   --color-gold-light: #ecd6a6;
   --color-gold-dim: #a3803f;
 
-  /* Soft white — used on alternating sections site-wide (not just Sónia's
-     aesthetics pages) so the site isn't wall-to-wall dark. */
+  /* Soft-white sub-palette — reserved for Sónia's aesthetics pages, kept
+     out of the main barber flow so the site keeps one clear identity. */
   --color-mist: #f7f5f0;
   --color-mist-2: #ece7dd;
   --color-stone: #2c2b29;
+  --color-stone-dim: #756f61;
+  --color-stone-dim-2: #a29c8c;
 }
 
 @layer base {
@@ -32,7 +44,7 @@
   body {
     margin: 0;
     background: var(--color-ink);
-    color: #f2f0ec;
+    color: var(--color-cream);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -43,8 +55,9 @@
   h3,
   h4 {
     font-family: var(--font-display);
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
   }
 }
 

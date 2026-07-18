@@ -3,7 +3,6 @@ import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { MobileCallBar } from '../components/MobileCallBar'
 import { StampWatermark } from '../components/StampMark'
-import { SectionHeading } from '../components/SectionHeading'
 import { useLang } from '../lib/i18n'
 import { getService, SERVICE_DURATIONS } from '../lib/booking'
 import { IconBeard, IconChevronLeft, IconFish, IconLaser, IconScissors, IconSparkle, IconSpa } from '../components/icons'
@@ -33,12 +32,12 @@ export default function ServiceDetailPage() {
     <>
       <Header />
       <main className={light ? 'bg-mist' : 'bg-ink'}>
-        <section className={`relative overflow-hidden py-20 sm:py-28 ${light ? 'bg-mist' : 'bg-ink'}`}>
+        <section className="relative overflow-hidden py-24 sm:py-32">
           <StampWatermark className={`-right-24 -top-24 h-96 w-96 rotate-12 ${light ? 'text-stone' : 'text-gold'}`} />
           <div className="relative mx-auto max-w-4xl px-5 sm:px-8">
             <Link
               to="/#services"
-              className={`inline-flex items-center gap-1.5 text-sm font-semibold normal-case ${light ? 'text-stone/70 hover:text-stone' : 'text-white/60 hover:text-white'}`}
+              className={`inline-flex items-center gap-1.5 text-sm font-semibold normal-case transition-colors duration-200 ${light ? 'text-stone-dim hover:text-stone' : 'text-cream-dim hover:text-cream'}`}
             >
               <IconChevronLeft className="h-4 w-4" />
               {tr('service_back')}
@@ -50,10 +49,10 @@ export default function ServiceDetailPage() {
               <Icon className="h-8 w-8" />
             </div>
 
-            <h1 className={`mt-6 text-4xl font-black sm:text-6xl ${light ? 'text-stone' : 'text-white'}`}>
+            <h1 className={`mt-6 text-4xl font-bold sm:text-6xl ${light ? 'text-stone' : 'text-cream'}`}>
               {service.name[lang]}
             </h1>
-            <p className={`mt-6 max-w-2xl text-lg leading-relaxed normal-case ${light ? 'text-stone/75' : 'text-white/70'}`}>
+            <p className={`mt-6 max-w-2xl text-lg leading-relaxed normal-case ${light ? 'text-stone-dim' : 'text-cream-dim'}`}>
               {service.longDesc[lang]}
             </p>
 
@@ -65,28 +64,9 @@ export default function ServiceDetailPage() {
 
             <Link
               to={bookHref}
-              className="mt-10 inline-flex items-center rounded-full bg-gold px-8 py-4 text-sm font-bold text-ink transition-transform hover:scale-105"
+              className="mt-10 inline-flex items-center rounded-full bg-gold px-8 py-4 text-sm font-bold text-ink transition-all duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2 active:scale-95"
             >
               {tr('service_book_now')}
-            </Link>
-          </div>
-        </section>
-
-        <section className={`py-16 ${light ? 'bg-mist-2' : 'bg-charcoal'}`}>
-          <div className="mx-auto max-w-4xl px-5 sm:px-8">
-            <SectionHeading
-              light={light}
-              eyebrow={tr('services_eyebrow')}
-              title={tr('services_title')}
-              subtitle={tr('services_subtitle')}
-            />
-            <Link
-              to="/#services"
-              className={`mt-6 inline-flex items-center rounded-full border px-6 py-3 text-sm font-bold normal-case ${
-                light ? 'border-stone/20 text-stone hover:border-gold/50' : 'border-gold/20 text-white hover:border-gold/40'
-              }`}
-            >
-              {tr('service_back')}
             </Link>
           </div>
         </section>

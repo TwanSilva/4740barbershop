@@ -44,7 +44,7 @@ export function SlotStep({
 
   return (
     <div>
-      <h2 className={`text-2xl font-black sm:text-3xl ${light ? 'text-stone' : 'text-white'}`}>
+      <h2 className={`text-2xl font-bold sm:text-3xl ${light ? 'text-stone' : 'text-cream'}`}>
         {tr('booking_step_slot_title')}
       </h2>
 
@@ -57,18 +57,18 @@ export function SlotStep({
               key={day}
               type="button"
               onClick={() => setSelectedDay(day)}
-              className={`flex shrink-0 flex-col items-center rounded-2xl border px-4 py-3 transition-colors ${
+              className={`flex shrink-0 flex-col items-center rounded-2xl border px-4 py-3 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 active:scale-95 ${
                 isSelected
                   ? 'border-gold bg-gold text-ink'
                   : light
-                    ? 'border-stone/15 text-stone hover:border-gold/50'
-                    : 'border-gold/15 text-white hover:border-gold/40'
+                    ? 'border-mist-2 text-stone hover:border-gold'
+                    : 'border-line text-cream hover:border-gold'
               }`}
             >
               <span className="text-[10px] font-bold uppercase">
                 {date.toLocaleDateString(locale, { weekday: 'short' })}
               </span>
-              <span className="text-base font-black">{date.getDate()}</span>
+              <span className="text-base font-bold">{date.getDate()}</span>
             </button>
           )
         })}
@@ -76,10 +76,10 @@ export function SlotStep({
 
       <div className="mt-6">
         {loading && (
-          <p className={`text-sm normal-case ${light ? 'text-stone/60' : 'text-white/50'}`}>{tr('booking_slot_loading')}</p>
+          <p className={`text-sm normal-case ${light ? 'text-stone-dim' : 'text-cream-dim'}`}>{tr('booking_slot_loading')}</p>
         )}
         {!loading && slots && slots.length === 0 && (
-          <p className={`text-sm normal-case ${light ? 'text-stone/60' : 'text-white/50'}`}>{tr('booking_slot_closed')}</p>
+          <p className={`text-sm normal-case ${light ? 'text-stone-dim' : 'text-cream-dim'}`}>{tr('booking_slot_closed')}</p>
         )}
         {!loading && slots && slots.length > 0 && (
           <div className="grid grid-cols-3 gap-3 sm:grid-cols-4">
@@ -90,12 +90,14 @@ export function SlotStep({
                 disabled={!slot.available}
                 onClick={() => onSelect(selectedDay, slot.time)}
                 title={!slot.available ? tr('booking_slot_occupied') : undefined}
-                className={`rounded-xl border px-3 py-3 text-sm font-bold transition-colors ${
+                className={`rounded-xl border px-3 py-3 text-sm font-bold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 ${
                   slot.available
                     ? light
-                      ? 'border-stone/15 text-stone hover:border-gold hover:bg-gold/10'
-                      : 'border-gold/15 text-white hover:border-gold hover:bg-gold/10'
-                    : 'cursor-not-allowed border-transparent bg-white/5 text-white/25 line-through'
+                      ? 'border-mist-2 text-stone hover:border-gold hover:bg-gold/10 active:scale-95'
+                      : 'border-line text-cream hover:border-gold hover:bg-gold/10 active:scale-95'
+                    : light
+                      ? 'cursor-not-allowed border-transparent bg-mist-2 text-stone-dim-2 line-through'
+                      : 'cursor-not-allowed border-transparent bg-charcoal-2 text-cream-dim-2 line-through'
                 }`}
               >
                 {slot.time}

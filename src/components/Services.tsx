@@ -20,7 +20,7 @@ export function Services() {
   const ref = useReveal<HTMLDivElement>()
 
   return (
-    <section id="services" className="relative bg-charcoal py-24 sm:py-32">
+    <section id="services" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
           eyebrow={tr('services_eyebrow')}
@@ -31,16 +31,17 @@ export function Services() {
         <div ref={ref} className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service) => {
             const Icon = SERVICE_ICONS[service.slug] ?? IconScissors
+            // Sónia's aesthetics services get the lighter sub-palette — a
+            // deliberate, meaningful split (barber energy vs. spa energy),
+            // not decoration.
             const light = service.category === 'aesthetics'
             return (
               <Link
                 key={service.slug}
                 to={`/services/${service.slug}`}
                 data-reveal
-                className={`group flex flex-col overflow-hidden rounded-3xl border p-7 transition-all hover:-translate-y-1 ${
-                  light
-                    ? 'border-gold/20 bg-mist hover:border-gold'
-                    : 'border-gold/15 bg-ink hover:border-gold/60'
+                className={`group flex flex-col overflow-hidden rounded-3xl border p-7 transition-all duration-200 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 active:scale-[0.98] ${
+                  light ? 'border-mist-2 bg-mist hover:border-gold' : 'border-line bg-charcoal-2 hover:border-gold'
                 }`}
               >
                 <div
@@ -50,10 +51,10 @@ export function Services() {
                 >
                   <Icon className="h-6 w-6" />
                 </div>
-                <h3 className={`mt-6 text-xl font-bold normal-case ${light ? 'text-stone' : 'text-white'}`}>
+                <h3 className={`mt-6 text-xl font-bold normal-case ${light ? 'text-stone' : 'text-cream'}`}>
                   {service.name[lang]}
                 </h3>
-                <p className={`mt-2 flex-1 text-sm leading-relaxed normal-case ${light ? 'text-stone/70' : 'text-white/60'}`}>
+                <p className={`mt-2 flex-1 text-sm leading-relaxed normal-case ${light ? 'text-stone-dim' : 'text-cream-dim'}`}>
                   {service.shortDesc[lang]}
                 </p>
                 <span
