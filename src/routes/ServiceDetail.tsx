@@ -5,11 +5,10 @@ import { MobileCallBar } from '../components/MobileCallBar'
 import { StampWatermark } from '../components/StampMark'
 import { useLang } from '../lib/i18n'
 import { getService, SERVICE_DURATIONS } from '../lib/booking'
-import { IconBeard, IconChevronLeft, IconFish, IconLaser, IconScissors, IconSparkle, IconSpa } from '../components/icons'
+import { IconChevronLeft, IconFish, IconLaser, IconScissors, IconSparkle, IconSpa } from '../components/icons'
 
 const SERVICE_ICONS: Record<string, typeof IconScissors> = {
-  corte: IconScissors,
-  'corte-barba': IconBeard,
+  barbearia: IconScissors,
   ictioterapia: IconFish,
   massagem: IconSpa,
   laser: IconLaser,
@@ -23,41 +22,34 @@ export default function ServiceDetailPage() {
 
   if (!service) return <Navigate to="/#services" replace />
 
-  const light = service.category === 'aesthetics'
   const Icon = SERVICE_ICONS[service.slug] ?? IconScissors
   const duration = SERVICE_DURATIONS[service.slug]
-  const bookHref = service.category === 'barber' ? `/book/barber?service=${service.slug}` : `/book/aesthetics/${service.slug}`
+  const bookHref = service.category === 'barber' ? '/book/barber' : `/book/aesthetics/${service.slug}`
 
   return (
     <>
       <Header />
-      <main className={light ? 'bg-mist' : 'bg-ink'}>
+      <main className="bg-mist">
         <section className="relative overflow-hidden py-24 sm:py-32">
-          <StampWatermark className={`-right-24 -top-24 h-96 w-96 rotate-12 ${light ? 'text-stone' : 'text-gold'}`} />
+          <StampWatermark className="-right-24 -top-24 h-96 w-96 rotate-12 text-stone" />
           <div className="relative mx-auto max-w-4xl px-5 sm:px-8">
             <Link
               to="/#services"
-              className={`inline-flex items-center gap-1.5 text-sm font-semibold normal-case transition-colors duration-200 ${light ? 'text-stone-dim hover:text-stone' : 'text-cream-dim hover:text-cream'}`}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-stone-dim normal-case transition-colors duration-200 hover:text-stone"
             >
               <IconChevronLeft className="h-4 w-4" />
               {tr('service_back')}
             </Link>
 
-            <div
-              className={`mt-8 grid h-16 w-16 place-items-center rounded-2xl ${light ? 'bg-stone text-mist' : 'bg-gold text-ink'}`}
-            >
+            <div className="mt-8 grid h-16 w-16 place-items-center rounded-2xl bg-stone text-mist">
               <Icon className="h-8 w-8" />
             </div>
 
-            <h1 className={`mt-6 text-4xl font-bold sm:text-6xl ${light ? 'text-stone' : 'text-cream'}`}>
-              {service.name[lang]}
-            </h1>
-            <p className={`mt-6 max-w-2xl text-lg leading-relaxed normal-case ${light ? 'text-stone-dim' : 'text-cream-dim'}`}>
-              {service.longDesc[lang]}
-            </p>
+            <h1 className="mt-6 text-4xl font-bold text-stone sm:text-6xl">{service.name[lang]}</h1>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-stone-dim normal-case">{service.longDesc[lang]}</p>
 
             {duration && (
-              <p className={`mt-6 text-sm font-semibold normal-case ${light ? 'text-gold-dim' : 'text-gold'}`}>
+              <p className="mt-6 text-sm font-semibold text-gold-dim normal-case">
                 {tr('service_duration_label')}: {duration} {tr('service_minutes')}
               </p>
             )}

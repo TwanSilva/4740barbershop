@@ -27,13 +27,15 @@
   --color-gold-light: #ecd6a6;
   --color-gold-dim: #a3803f;
 
-  /* Soft-white sub-palette — reserved for Sónia's aesthetics pages, kept
-     out of the main barber flow so the site keeps one clear identity. */
-  --color-mist: #f7f5f0;
-  --color-mist-2: #ece7dd;
-  --color-stone: #2c2b29;
-  --color-stone-dim: #756f61;
-  --color-stone-dim-2: #a29c8c;
+  /* Elegant neutral grey — the shared surface for every service card and
+     detail page (barbershop and aesthetics alike), so no service reads as
+     a different color from any other. Kept out of the interactive booking
+     flow, which stays on the dark identity above. */
+  --color-mist: #f1f1ef;
+  --color-mist-2: #e2e1dd;
+  --color-stone: #313130;
+  --color-stone-dim: #6e6b64;
+  --color-stone-dim-2: #9c988f;
 }
 
 @layer base {

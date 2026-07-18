@@ -3,13 +3,11 @@ import { useLang } from '../lib/i18n'
 import { IconCheck } from '../components/icons'
 
 export function Confirmation({
-  light,
   serviceName,
   providerName,
   date,
   time,
 }: {
-  light?: boolean
   serviceName: string
   providerName: string
   date: string
@@ -27,26 +25,22 @@ export function Confirmation({
       <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-gold text-ink">
         <IconCheck className="h-8 w-8" />
       </div>
-      <h2 className={`mt-6 text-3xl font-bold sm:text-4xl ${light ? 'text-stone' : 'text-cream'}`}>
-        {tr('booking_confirmed_title')}
-      </h2>
-      <p className={`mx-auto mt-4 max-w-md text-base normal-case ${light ? 'text-stone-dim' : 'text-cream-dim'}`}>
-        {tr('booking_confirmed_body')}
-      </p>
+      <h2 className="mt-6 text-3xl font-bold text-cream sm:text-4xl">{tr('booking_confirmed_title')}</h2>
+      <p className="mx-auto mt-4 max-w-md text-base text-cream-dim normal-case">{tr('booking_confirmed_body')}</p>
 
-      <div className={`mx-auto mt-8 max-w-sm border-t ${light ? 'border-mist-2' : 'border-line'} pt-6 text-left`}>
+      <div className="mx-auto mt-8 max-w-sm border-t border-line pt-6 text-left">
         <dl className="flex flex-col gap-3 text-sm">
           <div className="flex justify-between gap-4">
-            <dt className={light ? 'text-stone-dim' : 'text-cream-dim'}>{tr('booking_summary_service')}</dt>
-            <dd className={`font-semibold normal-case ${light ? 'text-stone' : 'text-cream'}`}>{serviceName}</dd>
+            <dt className="text-cream-dim">{tr('booking_summary_service')}</dt>
+            <dd className="font-semibold text-cream normal-case">{serviceName}</dd>
           </div>
           <div className="flex justify-between gap-4">
-            <dt className={light ? 'text-stone-dim' : 'text-cream-dim'}>{tr('booking_summary_provider')}</dt>
-            <dd className={`font-semibold normal-case ${light ? 'text-stone' : 'text-cream'}`}>{providerName}</dd>
+            <dt className="text-cream-dim">{tr('booking_summary_provider')}</dt>
+            <dd className="font-semibold text-cream normal-case">{providerName}</dd>
           </div>
           <div className="flex justify-between gap-4">
-            <dt className={light ? 'text-stone-dim' : 'text-cream-dim'}>{tr('booking_summary_when')}</dt>
-            <dd className={`text-right font-semibold normal-case ${light ? 'text-stone' : 'text-cream'}`}>
+            <dt className="text-cream-dim">{tr('booking_summary_when')}</dt>
+            <dd className="text-right font-semibold text-cream normal-case">
               {formattedDate}, {time}
             </dd>
           </div>

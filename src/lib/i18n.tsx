@@ -109,9 +109,6 @@ export const t = {
   // Booking — choose provider
   booking_step_provider_title: { pt: 'Escolhe o teu barbeiro', en: 'Choose your barber' },
 
-  // Booking — choose service
-  booking_step_service_title: { pt: 'Escolhe o serviço', en: 'Choose the service' },
-
   // Booking — choose slot
   booking_step_slot_title: { pt: 'Escolhe data e hora', en: 'Choose a date and time' },
   booking_slot_occupied: { pt: 'Ocupado', en: 'Occupied' },

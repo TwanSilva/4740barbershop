@@ -10,8 +10,7 @@ export const PROVIDER_NAMES: Record<string, string> = {
 }
 
 export const SERVICE_NAMES: Record<string, string> = {
-  corte: 'Corte',
-  'corte-barba': 'Corte + Barba',
+  barbearia: 'Barbearia',
   ictioterapia: 'Ictioterapia',
   massagem: 'Massagem',
   laser: 'Laser',

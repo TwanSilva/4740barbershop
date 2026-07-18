@@ -9,12 +9,10 @@ export type ContactInfo = {
 }
 
 export function ContactStep({
-  light,
   submitting,
   error,
   onSubmit,
 }: {
-  light?: boolean
   submitting: boolean
   error?: string
   onSubmit: (info: ContactInfo) => void
@@ -30,18 +28,13 @@ export function ContactStep({
     onSubmit({ name, email, phone, notes })
   }
 
-  const inputClass = `w-full rounded-xl border px-4 py-3 text-sm outline-none transition-colors duration-200 focus:border-gold focus-visible:ring-2 focus-visible:ring-gold/40 ${
-    light
-      ? 'border-mist-2 bg-white text-stone placeholder:text-stone-dim-2'
-      : 'border-line bg-charcoal-2 text-cream placeholder:text-cream-dim-2'
-  }`
-  const labelClass = `mb-1.5 block text-xs font-bold uppercase tracking-wide ${light ? 'text-stone-dim' : 'text-cream-dim'}`
+  const inputClass =
+    'w-full rounded-xl border border-line bg-charcoal-2 px-4 py-3 text-sm text-cream outline-none transition-colors duration-200 placeholder:text-cream-dim-2 focus:border-gold focus-visible:ring-2 focus-visible:ring-gold/40'
+  const labelClass = 'mb-1.5 block text-xs font-bold uppercase tracking-wide text-cream-dim'
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2 className={`text-2xl font-bold sm:text-3xl ${light ? 'text-stone' : 'text-cream'}`}>
-        {tr('booking_step_contact_title')}
-      </h2>
+      <h2 className="text-2xl font-bold text-cream sm:text-3xl">{tr('booking_step_contact_title')}</h2>
 
       <div className="mt-6 flex flex-col gap-4">
         <div>

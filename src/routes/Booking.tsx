@@ -1,10 +1,9 @@
 import { useMemo, useState, type ReactNode } from 'react'
-import { Navigate, useParams, useSearchParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { StepIndicator } from '../booking/StepIndicator'
 import { ProviderStep } from '../booking/ProviderStep'
-import { ServiceStep } from '../booking/ServiceStep'
 import { SlotStep } from '../booking/SlotStep'
 import { ContactStep, type ContactInfo } from '../booking/ContactStep'
 import { Confirmation } from '../booking/Confirmation'
@@ -13,9 +12,10 @@ import { getProvider, getService, SERVICE_DURATIONS, SERVICES, type Service } fr
 import { createAppointment, isSlotConflictError, slotEndTime } from '../lib/availability'
 import { IconChevronLeft } from '../components/icons'
 
+const BARBER_SERVICE_SLUG = 'barbearia'
+
 type BookingState = {
   providerId?: string
-  serviceSlug?: string
   date?: string
   time?: string
 }
@@ -26,13 +26,11 @@ export default function BookingPage({ flow }: { flow: 'barber' | 'aesthetics' })
 }
 
 function Shell({
-  light,
   step,
   total,
   onBack,
   children,
 }: {
-  light?: boolean
   step: number
   total: number
   onBack?: () => void
@@ -42,21 +40,19 @@ function Shell({
   return (
     <>
       <Header />
-      <main className={`min-h-[80vh] ${light ? 'bg-mist' : 'bg-ink'}`}>
+      <main className="min-h-[80vh] bg-ink">
         <div className="mx-auto max-w-2xl px-5 py-16 sm:px-8 sm:py-24">
           {onBack && (
             <button
               type="button"
               onClick={onBack}
-              className={`mb-6 inline-flex items-center gap-1.5 text-sm font-semibold normal-case transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 active:scale-95 ${
-                light ? 'text-stone-dim hover:text-stone' : 'text-cream-dim hover:text-cream'
-              }`}
+              className="mb-6 inline-flex items-center gap-1.5 text-sm font-semibold text-cream-dim normal-case transition-colors duration-200 hover:text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 active:scale-95"
             >
               <IconChevronLeft className="h-4 w-4" />
               {tr('booking_back')}
             </button>
           )}
-          <StepIndicator step={step} total={total} light={light} />
+          <StepIndicator step={step} total={total} />
           {children}
         </div>
       </main>
@@ -67,26 +63,24 @@ function Shell({
 
 function BarberBooking() {
   const { tr, lang } = useLang()
-  const [searchParams] = useSearchParams()
-  const preselectedService = searchParams.get('service') ?? undefined
-  const [state, setState] = useState<BookingState>({ serviceSlug: preselectedService })
+  const [state, setState] = useState<BookingState>({})
   const [stepIndex, setStepIndex] = useState(0)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string>()
   const [confirmed, setConfirmed] = useState(false)
 
-  const steps = ['provider', 'service', 'slot', 'contact'] as const
+  const steps = ['provider', 'slot', 'contact'] as const
   const total = steps.length
+  const duration = SERVICE_DURATIONS[BARBER_SERVICE_SLUG]
 
   async function handleContactSubmit(info: ContactInfo) {
-    if (!state.providerId || !state.serviceSlug || !state.date || !state.time) return
+    if (!state.providerId || !state.date || !state.time) return
     setSubmitting(true)
     setError(undefined)
-    const duration = SERVICE_DURATIONS[state.serviceSlug]
     try {
       await createAppointment({
         provider_id: state.providerId,
-        service_slug: state.serviceSlug,
+        service_slug: BARBER_SERVICE_SLUG,
         date: state.date,
         start_time: state.time,
         end_time: slotEndTime(state.time, duration),
@@ -104,9 +98,9 @@ function BarberBooking() {
     }
   }
 
-  if (confirmed && state.providerId && state.serviceSlug && state.date && state.time) {
+  if (confirmed && state.providerId && state.date && state.time) {
     const provider = getProvider(state.providerId)
-    const service = getService(state.serviceSlug)
+    const service = getService(BARBER_SERVICE_SLUG)
     return (
       <Shell step={total} total={total}>
         <Confirmation
@@ -132,22 +126,13 @@ function BarberBooking() {
           }}
         />
       )}
-      {current === 'service' && (
-        <ServiceStep
-          selected={state.serviceSlug}
-          onSelect={(serviceSlug) => {
-            setState((s) => ({ ...s, serviceSlug }))
-            setStepIndex(2)
-          }}
-        />
-      )}
-      {current === 'slot' && state.providerId && state.serviceSlug && (
+      {current === 'slot' && state.providerId && (
         <SlotStep
           providerId={state.providerId}
-          durationMinutes={SERVICE_DURATIONS[state.serviceSlug]}
+          durationMinutes={duration}
           onSelect={(date, time) => {
             setState((s) => ({ ...s, date, time }))
-            setStepIndex(3)
+            setStepIndex(2)
           }}
         />
       )}
@@ -205,8 +190,8 @@ function AestheticsBooking() {
 
   if (confirmed && state.date && state.time) {
     return (
-      <Shell light step={total} total={total}>
-        <Confirmation light serviceName={service.name[lang]} providerName="Sónia" date={state.date} time={state.time} />
+      <Shell step={total} total={total}>
+        <Confirmation serviceName={service.name[lang]} providerName="Sónia" date={state.date} time={state.time} />
       </Shell>
     )
   }
@@ -215,10 +200,9 @@ function AestheticsBooking() {
   const canGoBack = stepIndex > 0
 
   return (
-    <Shell light step={stepIndex + 1} total={total} onBack={canGoBack ? () => setStepIndex((i) => i - 1) : undefined}>
+    <Shell step={stepIndex + 1} total={total} onBack={canGoBack ? () => setStepIndex((i) => i - 1) : undefined}>
       {current === 'slot' && (
         <SlotStep
-          light
           providerId={providerId}
           durationMinutes={SERVICE_DURATIONS[service.slug]}
           onSelect={(date, time) => {
@@ -227,9 +211,7 @@ function AestheticsBooking() {
           }}
         />
       )}
-      {current === 'contact' && (
-        <ContactStep light submitting={submitting} error={error} onSubmit={handleContactSubmit} />
-      )}
+      {current === 'contact' && <ContactStep submitting={submitting} error={error} onSubmit={handleContactSubmit} />}
     </Shell>
   )
 }

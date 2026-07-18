@@ -12,22 +12,15 @@ export type Service = {
 
 export const SERVICES: Service[] = [
   {
-    slug: 'corte',
-    name: { pt: 'Corte', en: 'Haircut' },
-    shortDesc: { pt: 'Corte de cabelo clássico ou moderno, à tua medida.', en: 'Classic or modern haircut, tailored to you.' },
-    longDesc: {
-      pt: 'Um corte de cabelo cuidado do início ao fim: consulta rápida sobre o estilo pretendido, corte à tesoura e máquina, e acabamento com toalha quente.',
-      en: 'A careful haircut from start to finish: a quick chat about the style you want, scissor and clipper work, and a hot-towel finish.',
+    slug: 'barbearia',
+    name: { pt: 'Barbearia', en: 'Barbershop' },
+    shortDesc: {
+      pt: 'Corte, barba, ou os dois — decides no dia com o teu barbeiro.',
+      en: 'Haircut, beard, or both — decide on the day with your barber.',
     },
-    category: 'barber',
-  },
-  {
-    slug: 'corte-barba',
-    name: { pt: 'Corte + Barba', en: 'Haircut + Beard' },
-    shortDesc: { pt: 'O combo completo: cabelo e barba num só serviço.', en: 'The full combo: hair and beard in one service.' },
     longDesc: {
-      pt: 'O nosso serviço mais pedido: corte de cabelo completo seguido de desenho e aparo de barba, com toalha quente e produtos de acabamento.',
-      en: 'Our most requested service: a full haircut followed by beard shaping and trimming, with a hot towel and finishing products.',
+      pt: 'Marca a tua hora e decide no local se queres corte, barba, ou o combo completo — o teu barbeiro trata do resto, com toalha quente e produtos de acabamento.',
+      en: 'Book your slot and decide in person whether you want a haircut, a beard trim, or the full combo — your barber takes care of the rest, with a hot towel and finishing products.',
     },
     category: 'barber',
   },
@@ -80,8 +73,7 @@ export function getService(slug: string) {
 // Placeholder duration for every service — edit each entry independently
 // once real durations are confirmed. Booking logic reads only from here.
 export const SERVICE_DURATIONS: Record<string, number> = {
-  corte: 60,
-  'corte-barba': 60,
+  barbearia: 60,
   ictioterapia: 60,
   massagem: 60,
   laser: 60,
@@ -96,9 +88,9 @@ export type Provider = {
 }
 
 export const PROVIDERS: Provider[] = [
-  { id: 'luis', name: 'Luís', kind: 'barber', serviceSlugs: ['corte', 'corte-barba'] },
-  { id: 'leandro', name: 'Leandro', kind: 'barber', serviceSlugs: ['corte', 'corte-barba'] },
-  { id: 'enzo', name: 'Enzo', kind: 'barber', serviceSlugs: ['corte', 'corte-barba'] },
+  { id: 'luis', name: 'Luís', kind: 'barber', serviceSlugs: ['barbearia'] },
+  { id: 'leandro', name: 'Leandro', kind: 'barber', serviceSlugs: ['barbearia'] },
+  { id: 'enzo', name: 'Enzo', kind: 'barber', serviceSlugs: ['barbearia'] },
   { id: 'sonia', name: 'Sónia', kind: 'aesthetics', serviceSlugs: ['ictioterapia', 'massagem', 'laser', 'limpeza-de-pele'] },
 ]
 
