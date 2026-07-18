@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom'
 import { useLang } from '../lib/i18n'
 import { useReveal } from '../hooks/useReveal'
-import { TEAM, BUSINESS_FULL_NAME } from '../lib/config'
+import { TEAM } from '../lib/config'
 import { SectionHeading } from './SectionHeading'
 import leandroImg from '../assets/team/leandro.jpg'
 import luisImg from '../assets/team/luis.jpg'
 import soniaImg from '../assets/team/sonia.jpg'
 import enzoImg from '../assets/team/enzo.jpg'
-import teamGroupImg from '../assets/team/team-group.jpg'
 
 const TEAM_PHOTOS: Record<string, string> = {
   luis: luisImg,
@@ -19,7 +18,6 @@ const TEAM_PHOTOS: Record<string, string> = {
 export function Team() {
   const { tr, lang } = useLang()
   const ref = useReveal<HTMLDivElement>()
-  const groupPhotoRef = useReveal<HTMLDivElement>()
 
   return (
     <section id="team" className="relative py-24 sm:py-32">
@@ -57,10 +55,6 @@ export function Team() {
               </div>
             )
           })}
-        </div>
-
-        <div ref={groupPhotoRef} data-reveal className="mt-6 overflow-hidden rounded-3xl border border-line">
-          <img src={teamGroupImg} alt={BUSINESS_FULL_NAME} className="w-full object-cover" />
         </div>
       </div>
     </section>
