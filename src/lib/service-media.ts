@@ -1,0 +1,29 @@
+import type { Bilingual } from './config'
+import laserVideoMp4 from '../assets/services/laser-video.mp4'
+import laserVideoWebm from '../assets/services/laser-video.webm'
+import laserPoster from '../assets/services/laser-poster.jpg'
+
+// Optional per-service background video + marketing caption, layered onto
+// the service detail page hero in place of the flat surface. Most services
+// won't have one — this is additive, not a replacement for the standard
+// icon/title/description template.
+export type ServiceMedia = {
+  video: { mp4: string; webm: string; poster: string }
+  caption: { headline: Bilingual; subline: Bilingual }
+}
+
+export const SERVICE_MEDIA: Record<string, ServiceMedia> = {
+  laser: {
+    video: { mp4: laserVideoMp4, webm: laserVideoWebm, poster: laserPoster },
+    caption: {
+      headline: {
+        pt: 'Pelos a mais? Só se for na barba!',
+        en: 'Too much hair? Only if it’s your beard!',
+      },
+      subline: {
+        pt: 'Na 4740, a depilação a laser é para eles e para elas – eficaz, segura e sem complicações.',
+        en: 'At 4740, laser hair removal is for everyone – effective, safe and hassle-free.',
+      },
+    },
+  },
+}
