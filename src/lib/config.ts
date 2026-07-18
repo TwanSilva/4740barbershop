@@ -1,3 +1,7 @@
+import heroVideoMp4 from '../assets/hero/hero-video.mp4'
+import heroVideoWebm from '../assets/hero/hero-video.webm'
+import heroPoster from '../assets/hero/hero-poster.jpg'
+
 // ---------------------------------------------------------------------------
 // Business constants — swap these (and the assets in /public and /src/assets)
 // to re-theme this template for a different barbershop/salon client.
@@ -23,10 +27,11 @@ export const GOOGLE_SEARCH_URL = `https://www.google.com/search?q=${encodeURICom
 export const GOOGLE_REVIEW_URL =
   'https://www.google.com/search?sca_esv=bcbe1a3c17fe5261&cs=0&sxsrf=APpeQnu9qj0-UBKa1nV_TzWurvgFn_E2lg:1784328333449&q=Barbershop+Cr%C3%ADticas&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNLQwNbU0MDU2NLA0NjI2ADItNjAyvmIUcUosSkotKs7IL1BwLjq8tiQzObF4EStWYQCNaayZSQAAAA&rldimm=11855905310932309058&tbm=lcl&hl=pt-PT&sa=X&ved=2ahUKEwjYg-eD5dqVAxWTKvsDHTu8EpoQ9fQKegQIEhAG&biw=1920&bih=953&dpr=1#lkt=LocalPoiReviews'
 
-// Easy-swap slot for the hero background video — drop the real files in
-// /src/assets/hero and update these three imports/paths. Until then the hero
-// falls back to a CSS gradient + stamp watermark, no broken <video> tag.
-export const HERO_VIDEO_SRC: { mp4?: string; webm?: string; poster?: string } = {}
+export const HERO_VIDEO_SRC: { mp4?: string; webm?: string; poster?: string } = {
+  mp4: heroVideoMp4,
+  webm: heroVideoWebm,
+  poster: heroPoster,
+}
 
 // Easy-swap slot for the real "4740 Barbershop" stamp logo. Drop the file in
 // /public (e.g. /public/logo.png) and point this at it — until then the
