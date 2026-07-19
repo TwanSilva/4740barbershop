@@ -74,8 +74,8 @@ export const TEAM: TeamMember[] = [
     name: 'Luís',
     role: { pt: 'Barbeiro', en: 'Barber' },
     bio: {
-      pt: 'Especialista em corte e barba, com atenção ao detalhe em cada visita.',
-      en: 'Haircut and beard specialist, with an eye for detail in every visit.',
+      pt: 'Luís, o visionário que fez nascer a 4740.',
+      en: 'Luís, the visionary who brought 4740 to life.',
     },
     initials: 'L',
     kind: 'barber',
@@ -85,8 +85,8 @@ export const TEAM: TeamMember[] = [
     name: 'Leandro',
     role: { pt: 'Barbeiro', en: 'Barber' },
     bio: {
-      pt: 'Especialista em corte e barba, sempre a par das últimas tendências.',
-      en: 'Haircut and beard specialist, always up to date with the latest trends.',
+      pt: 'Leandro, a experiência que garante aquele corte impecável.',
+      en: 'Leandro, the experience behind every flawless cut.',
     },
     initials: 'L',
     kind: 'barber',
@@ -96,8 +96,8 @@ export const TEAM: TeamMember[] = [
     name: 'Enzo',
     role: { pt: 'Barbeiro', en: 'Barber' },
     bio: {
-      pt: 'Especialista em corte e barba, reconhecido pelo profissionalismo e cuidado.',
-      en: 'Haircut and beard specialist, known for his professionalism and care.',
+      pt: 'Enzo, a ousadia que transforma cada máquina em arte.',
+      en: 'Enzo, the boldness that turns every clipper into art.',
     },
     initials: 'E',
     kind: 'barber',
