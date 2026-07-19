@@ -74,7 +74,7 @@ export default function ServiceDetailPage() {
               {service.name[lang]}
             </h1>
 
-            {media && (
+            {media?.caption && (
               <div className="mt-6 max-w-2xl border-l-2 border-gold/50 pl-5">
                 <p className="text-xl font-bold text-cream normal-case sm:text-2xl">{media.caption.headline[lang]}</p>
                 <p className="mt-2 text-base leading-relaxed text-cream-dim normal-case">{media.caption.subline[lang]}</p>
