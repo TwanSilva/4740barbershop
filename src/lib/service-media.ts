@@ -5,6 +5,9 @@ import laserPoster from '../assets/services/laser-poster.jpg'
 import ictioterapiaVideoMp4 from '../assets/services/ictioterapia-video.mp4'
 import ictioterapiaVideoWebm from '../assets/services/ictioterapia-video.webm'
 import ictioterapiaPoster from '../assets/services/ictioterapia-poster.jpg'
+import massagemVideoMp4 from '../assets/services/massagem-video.mp4'
+import massagemVideoWebm from '../assets/services/massagem-video.webm'
+import massagemPoster from '../assets/services/massagem-poster.jpg'
 
 // Optional per-service background video + marketing caption, layered onto
 // the service detail page hero in place of the flat surface. Most services
@@ -32,5 +35,8 @@ export const SERVICE_MEDIA: Record<string, ServiceMedia> = {
   },
   ictioterapia: {
     video: { mp4: ictioterapiaVideoMp4, webm: ictioterapiaVideoWebm, poster: ictioterapiaPoster },
+  },
+  massagem: {
+    video: { mp4: massagemVideoMp4, webm: massagemVideoWebm, poster: massagemPoster },
   },
 }
