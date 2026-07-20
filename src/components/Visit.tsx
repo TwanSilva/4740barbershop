@@ -11,6 +11,7 @@ import {
   INSTAGRAM_URL,
   MAPS_DIRECTIONS_URL,
   MAPS_EMBED_URL,
+  MAPS_PLACE_URL,
   PHONE_TEL,
 } from '../lib/config'
 import { SectionHeading } from './SectionHeading'
@@ -100,13 +101,25 @@ export function Visit() {
             </div>
           </div>
 
-          <div data-reveal className="min-h-[360px] overflow-hidden rounded-3xl border border-line">
+          <div
+            data-reveal
+            className="group relative min-h-[360px] overflow-hidden rounded-3xl border border-line transition-colors duration-200 hover:border-gold"
+          >
             <iframe
               title={`${BUSINESS_FULL_NAME}, Google Maps`}
               src={MAPS_EMBED_URL}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="h-full min-h-[360px] w-full"
+              className="pointer-events-none h-full min-h-[360px] w-full"
+              aria-hidden="true"
+              tabIndex={-1}
+            />
+            <a
+              href={MAPS_PLACE_URL}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={tr('visit_map_open')}
+              className="absolute inset-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-inset"
             />
           </div>
         </div>

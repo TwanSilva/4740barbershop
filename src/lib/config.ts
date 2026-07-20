@@ -21,8 +21,18 @@ export const FACEBOOK_URL = 'https://www.facebook.com/BarbeariaBarbaNegraEsposen
 export const GOOGLE_RATING = 4.9
 export const GOOGLE_REVIEWS_COUNT = 154
 
+// Google's own CID for the business's Maps listing (pulled from the review
+// URL's rldimm param) — pins the exact listing instead of geocoding the raw
+// address text, which can land loosely near the building for a sub-unit
+// address like this one.
+export const GOOGLE_PLACE_CID = '11855905310932309058'
+
+// Opens the business's exact Maps listing (precise pin, info card, and a
+// "Directions" button one tap away) — used as the click-through for the map
+// embed, matching normal Google Maps click behaviour.
+export const MAPS_PLACE_URL = `https://www.google.com/maps?cid=${GOOGLE_PLACE_CID}`
 export const MAPS_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(ADDRESS_LINE)}`
-export const MAPS_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(ADDRESS_LINE)}&output=embed`
+export const MAPS_EMBED_URL = `https://www.google.com/maps?cid=${GOOGLE_PLACE_CID}&output=embed`
 export const GOOGLE_SEARCH_URL = `https://www.google.com/search?q=${encodeURIComponent(`${BUSINESS_FULL_NAME} Esposende`)}`
 export const GOOGLE_REVIEW_URL =
   'https://www.google.com/search?sca_esv=bcbe1a3c17fe5261&cs=0&sxsrf=APpeQnu9qj0-UBKa1nV_TzWurvgFn_E2lg:1784328333449&q=Barbershop+Cr%C3%ADticas&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNLQwNbU0MDU2NLA0NjI2ADItNjAyvmIUcUosSkotKs7IL1BwLjq8tiQzObF4EStWYQCNaayZSQAAAA&rldimm=11855905310932309058&tbm=lcl&hl=pt-PT&sa=X&ved=2ahUKEwjYg-eD5dqVAxWTKvsDHTu8EpoQ9fQKegQIEhAG&biw=1920&bih=953&dpr=1#lkt=LocalPoiReviews'

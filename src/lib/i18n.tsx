@@ -78,6 +78,7 @@ export const t = {
   closed: { pt: 'Encerrado', en: 'Closed' },
   address_label: { pt: 'Morada', en: 'Address' },
   visit_directions: { pt: 'Como Chegar', en: 'Get Directions' },
+  visit_map_open: { pt: 'Abrir localização no Google Maps', en: 'Open location in Google Maps' },
   visit_call: { pt: 'Ligar Agora', en: 'Call Now' },
   visit_instagram: { pt: 'Instagram', en: 'Instagram' },
   visit_facebook: { pt: 'Facebook', en: 'Facebook' },
