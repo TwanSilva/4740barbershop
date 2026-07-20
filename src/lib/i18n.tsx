@@ -47,8 +47,8 @@ export const t = {
   services_eyebrow: { pt: 'O Que Fazemos', en: 'What We Do' },
   services_title: { pt: 'Os Nossos Serviços', en: 'Our Services' },
   services_subtitle: {
-    pt: 'Da barbearia clássica aos cuidados de estética — escolhe o teu serviço.',
-    en: 'From classic barbering to aesthetics care — choose your service.',
+    pt: 'Da barbearia clássica aos cuidados de estética, escolhe o teu serviço.',
+    en: 'From classic barbering to aesthetics care, choose your service.',
   },
   service_learn_more: { pt: 'Saber Mais', en: 'Learn More' },
   service_book_now: { pt: 'Marcar Hora', en: 'Book Now' },
@@ -106,8 +106,20 @@ export const t = {
   booking_continue: { pt: 'Continuar', en: 'Continue' },
   booking_close: { pt: 'Fechar', en: 'Close' },
 
+  // Booking — choose service
+  booking_step_service_title: { pt: 'O que pretendes marcar?', en: 'What would you like to book?' },
+  booking_start_subtitle: {
+    pt: 'Escolhe um serviço para veres os horários disponíveis.',
+    en: 'Choose a service to see the available times.',
+  },
+
   // Booking — choose provider
   booking_step_provider_title: { pt: 'Escolhe o teu barbeiro', en: 'Choose your barber' },
+
+  // Booking — choose cut type
+  booking_step_cuttype_title: { pt: 'O que vais fazer hoje?', en: 'What are you getting done?' },
+  booking_cuttype_haircut: { pt: 'Apenas Corte', en: 'Haircut Only' },
+  booking_cuttype_combo: { pt: 'Corte + Barba', en: 'Haircut + Beard' },
 
   // Booking — choose slot
   booking_step_slot_title: { pt: 'Escolhe data e hora', en: 'Choose a date and time' },

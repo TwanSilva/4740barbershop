@@ -107,8 +107,8 @@ export const TEAM: TeamMember[] = [
     name: 'Sónia',
     role: { pt: 'Especialista em Estética', en: 'Aesthetics Specialist' },
     bio: {
-      pt: 'Ictioterapia, massagem, laser e limpeza de pele — cuidados de estética completos.',
-      en: 'Ichthyotherapy, massage, laser and skin cleansing — complete aesthetics care.',
+      pt: 'Ictioterapia, massagem, laser e limpeza de pele, cuidados de estética completos.',
+      en: 'Ichthyotherapy, massage, laser and skin cleansing, complete aesthetics care.',
     },
     initials: 'S',
     kind: 'aesthetics',
@@ -117,15 +117,15 @@ export const TEAM: TeamMember[] = [
 
 export const TESTIMONIALS: Bilingual[] = [
   {
-    pt: 'Levei os mais novos da família para cortar o cabelo e fomos recebidos com muita simpatia e profissionalismo — os barbeiros tiveram imensa paciência com as crianças.',
-    en: "I brought the youngest members of the family in for haircuts and we were received with great friendliness and professionalism — the barbers showed a lot of patience with the kids.",
+    pt: 'Levei os mais novos da família para cortar o cabelo e fomos recebidos com muita simpatia e profissionalismo, os barbeiros tiveram imensa paciência com as crianças.',
+    en: "I brought the youngest members of the family in for haircuts and we were received with great friendliness and professionalism, the barbers showed a lot of patience with the kids.",
   },
   {
     pt: 'Serviço incrível e uma equipa extremamente simpática do início ao fim.',
     en: 'Incredible service and an extremely kind team from start to finish.',
   },
   {
-    pt: 'O Enzo é um excelente profissional — saí de lá com corte, barba e bigode impecáveis. Recomendo muito.',
-    en: 'Enzo is an excellent professional — I left with an impeccable haircut, beard and moustache. Highly recommend.',
+    pt: 'O Enzo é um excelente profissional, saí de lá com corte, barba e bigode impecáveis. Recomendo muito.',
+    en: 'Enzo is an excellent professional, I left with an impeccable haircut, beard and moustache. Highly recommend.',
   },
 ]

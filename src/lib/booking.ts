@@ -15,12 +15,12 @@ export const SERVICES: Service[] = [
     slug: 'barbearia',
     name: { pt: 'Barbearia', en: 'Barbershop' },
     shortDesc: {
-      pt: 'Corte, barba, ou os dois — decides no dia com o teu barbeiro.',
-      en: 'Haircut, beard, or both — decide on the day with your barber.',
+      pt: 'Corte, barba, ou os dois, decides no dia com o teu barbeiro.',
+      en: 'Haircut, beard, or both, decide on the day with your barber.',
     },
     longDesc: {
-      pt: 'Marca a tua hora e decide no local se queres corte, barba, ou o combo completo — o teu barbeiro trata do resto, com toalha quente e produtos de acabamento.',
-      en: 'Book your slot and decide in person whether you want a haircut, a beard trim, or the full combo — your barber takes care of the rest, with a hot towel and finishing products.',
+      pt: 'Marca a tua hora e decide no local se queres corte, barba, ou o combo completo, o teu barbeiro trata do resto, com toalha quente e produtos de acabamento.',
+      en: 'Book your slot and decide in person whether you want a haircut, a beard trim, or the full combo, your barber takes care of the rest, with a hot towel and finishing products.',
     },
     category: 'barber',
   },

@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { LanguageProvider } from './lib/i18n'
 import HomePage from './routes/Home'
 import ServiceDetailPage from './routes/ServiceDetail'
+import BookingStartPage from './routes/BookingStart'
 import BookingPage from './routes/Booking'
 import AdminPage from './routes/Admin'
 
@@ -22,6 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/services/:slug" element={<ServiceDetailPage />} />
+          <Route path="/book" element={<BookingStartPage />} />
           <Route path="/book/barber" element={<BookingPage flow="barber" />} />
           <Route path="/book/aesthetics/:service" element={<BookingPage flow="aesthetics" />} />
           <Route path="/admin" element={<AdminPage />} />

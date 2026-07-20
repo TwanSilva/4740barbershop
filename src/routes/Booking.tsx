@@ -4,6 +4,7 @@ import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { StepIndicator } from '../booking/StepIndicator'
 import { ProviderStep } from '../booking/ProviderStep'
+import { CutTypeStep, type CutType } from '../booking/CutTypeStep'
 import { SlotStep } from '../booking/SlotStep'
 import { ContactStep, type ContactInfo } from '../booking/ContactStep'
 import { Confirmation } from '../booking/Confirmation'
@@ -14,8 +15,20 @@ import { IconChevronLeft } from '../components/icons'
 
 const BARBER_SERVICE_SLUG = 'barbearia'
 
+const CUT_TYPE_NOTE: Record<CutType, string> = {
+  haircut: 'Apenas Corte',
+  combo: 'Corte + Barba',
+}
+
+function withCutTypeNote(cutType: CutType | undefined, notes: string) {
+  const label = cutType ? CUT_TYPE_NOTE[cutType] : undefined
+  if (!label) return notes || undefined
+  return notes ? `[${label}] ${notes}` : `[${label}]`
+}
+
 type BookingState = {
   providerId?: string
+  cutType?: CutType
   date?: string
   time?: string
 }
@@ -69,7 +82,7 @@ function BarberBooking() {
   const [error, setError] = useState<string>()
   const [confirmed, setConfirmed] = useState(false)
 
-  const steps = ['provider', 'slot', 'contact'] as const
+  const steps = ['provider', 'cutType', 'slot', 'contact'] as const
   const total = steps.length
   const duration = SERVICE_DURATIONS[BARBER_SERVICE_SLUG]
 
@@ -88,7 +101,7 @@ function BarberBooking() {
         client_name: info.name,
         client_email: info.email,
         client_phone: info.phone,
-        client_notes: info.notes || undefined,
+        client_notes: withCutTypeNote(state.cutType, info.notes),
       })
       setConfirmed(true)
     } catch (err) {
@@ -126,13 +139,21 @@ function BarberBooking() {
           }}
         />
       )}
+      {current === 'cutType' && (
+        <CutTypeStep
+          onSelect={(cutType) => {
+            setState((s) => ({ ...s, cutType }))
+            setStepIndex(2)
+          }}
+        />
+      )}
       {current === 'slot' && state.providerId && (
         <SlotStep
           providerId={state.providerId}
           durationMinutes={duration}
           onSelect={(date, time) => {
             setState((s) => ({ ...s, date, time }))
-            setStepIndex(2)
+            setStepIndex(3)
           }}
         />
       )}

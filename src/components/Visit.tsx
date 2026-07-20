@@ -102,7 +102,7 @@ export function Visit() {
 
           <div data-reveal className="min-h-[360px] overflow-hidden rounded-3xl border border-line">
             <iframe
-              title={`${BUSINESS_FULL_NAME} — Google Maps`}
+              title={`${BUSINESS_FULL_NAME}, Google Maps`}
               src={MAPS_EMBED_URL}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

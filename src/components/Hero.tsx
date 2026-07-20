@@ -39,7 +39,7 @@ export function Hero() {
 
         <div className="mt-9 flex flex-wrap items-center gap-4">
           <Link
-            to="/book/barber"
+            to="/book"
             className="rounded-full bg-gold px-7 py-4 text-sm font-bold text-ink transition-all duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-95"
           >
             {tr('hero_cta_primary')}

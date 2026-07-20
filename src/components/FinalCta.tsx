@@ -24,7 +24,7 @@ export function FinalCta() {
           <p className="mx-auto mt-4 max-w-lg text-base text-cream-dim normal-case">{tr('final_cta_subtitle')}</p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
-              to="/book/barber"
+              to="/book"
               className="inline-flex items-center gap-3 rounded-full bg-gold px-8 py-4 text-lg font-bold text-ink transition-all duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal-2 active:scale-95"
             >
               {tr('final_cta_button')}

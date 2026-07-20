@@ -6,15 +6,8 @@ import { StampWatermark } from '../components/StampMark'
 import { useLang } from '../lib/i18n'
 import { getService, SERVICE_DURATIONS } from '../lib/booking'
 import { SERVICE_MEDIA } from '../lib/service-media'
-import { IconChevronLeft, IconFish, IconLaser, IconScissors, IconSparkle, IconSpa } from '../components/icons'
-
-const SERVICE_ICONS: Record<string, typeof IconScissors> = {
-  barbearia: IconScissors,
-  ictioterapia: IconFish,
-  massagem: IconSpa,
-  laser: IconLaser,
-  'limpeza-de-pele': IconSparkle,
-}
+import { SERVICE_ICONS } from '../lib/service-icons'
+import { IconChevronLeft, IconScissors } from '../components/icons'
 
 export default function ServiceDetailPage() {
   const { slug } = useParams<{ slug: string }>()

@@ -80,7 +80,7 @@ export function Header() {
         <div className="hidden items-center gap-4 lg:flex">
           <LangToggle />
           <Link
-            to="/book/barber"
+            to="/book"
             className="rounded-full bg-gold px-5 py-2.5 text-sm font-bold text-ink transition-all duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-95"
           >
             {tr('nav_cta')}
@@ -114,7 +114,7 @@ export function Header() {
               </Link>
             ))}
             <Link
-              to="/book/barber"
+              to="/book"
               onClick={() => setMenuOpen(false)}
               className="mt-2 rounded-full bg-gold px-5 py-3 text-center text-sm font-bold text-ink active:scale-95"
             >
